@@ -1,5 +1,5 @@
 # Django settings for ww project.
-
+import os, sys
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -27,11 +27,8 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
-
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'America/Mexico_City Mexico/General'
+LANGUAGE_CODE = 'es'
 
 SITE_ID = 1
 
@@ -45,12 +42,15 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+RUTA_WW= os.path.dirname(os.path.realpath(__file__))
+MEDIA_ROOT=os.path.join(RUTA_WW, 'Media')
+
+
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -103,9 +103,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'ww.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+   MEDIA_ROOT+'/plantillas/',
 )
 
 INSTALLED_APPS = (
