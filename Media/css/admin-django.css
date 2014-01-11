@@ -1,0 +1,2 @@
+.complemento ul,.sopa ul,.bebida ul {width: 300px}
+.complemento ul li,.sopa ul li,.bebida ul li{display: inline-block;}
