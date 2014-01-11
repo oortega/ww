@@ -1,7 +1,16 @@
 {% extends "esqueleto.html" %}
 {% block cuerpo %}
 
-<h1>{{ titulo_seccion }}</h1>
+	<h1>Menu Hoy </h1>
+ 
+	<img src="" width="60px" height="60px">
+		 {{ menus.fecha }}
+		 
+ 
+		<div><h2>Complemento:</h2> <p>{% for comp in complementos %} <span>{{ comp }} {% endfor %}</span></p></div>
+		<div><h2>Sopa</h2><p></p></div>
+		<div><h2>Bebida</h2><p></p></div>
+	  
 
+ 
 {% endblock %}
-

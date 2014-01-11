@@ -4,7 +4,7 @@ from django.db import models
 from djangoratings.fields import AnonymousRatingField
 from django.forms.models import ModelForm  
 from django.forms.widgets import CheckboxSelectMultiple  
-
+from datetime import datetime
 
 class Comida(models.Model):
 	nombre=models.CharField("Nombre de la Comida",max_length=100,unique=True)
@@ -38,7 +38,9 @@ class Menu(models.Model):
 	complemento=models.ManyToManyField(Complemento, verbose_name="Selecciona los Complementos")
 	sopa=models.ManyToManyField(Sopa, verbose_name="Selecciona las sopas")
 	bebida=models.ManyToManyField(Bebida, verbose_name="Selecciona las Bebidas")
-	fecha=models.DateTimeField(auto_now=False, blank=True)
+	#fecha=models.DateTimeField(auto_now=False, blank=True)
+	fecha=models.DateField(auto_now=False, blank=True)
+	
 	calificacion=AnonymousRatingField(range=5, can_change_vote=True)
 	def __str__(self):
 		return u'%s %s' % (self.comidas, self.fecha)

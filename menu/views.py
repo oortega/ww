@@ -9,11 +9,15 @@ from django.contrib import auth
 from django.contrib.messages.api import get_messages
 from decimal import *
 from django.shortcuts import redirect
-
-
+from datetime import datetime
+from ww.menu.models import Menu,Complemento,Comida,Bebida
 
 
 def inicio(request):
-    
-    return render_to_response('index.html', {'titulo_seccion': "BestMenu"})
-    
+	
+	menus=Menu.objects.get(fecha="2014-01-11")
+	complementos=Menu.objects.get(fecha="2014-01-11").complemento.all()
+	 
+	#Categorias=Pelicula.objects.get(titulo=titulop).categorias.all()
+
+	return render_to_response('index.html',{'menus': menus,'dia':'lunes',"complementos":complementos},RequestContext(request))
