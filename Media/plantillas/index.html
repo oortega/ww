@@ -1,15 +1,40 @@
 {% extends "esqueleto.html" %}
 {% block cuerpo %}
 
-	<h1>Menu Hoy </h1>
- 
-	<img src="" width="60px" height="60px">
-		 {{ menus.fecha }}
-		 
- 
-		<div><h2>Complemento:</h2> <p>{% for comp in complementos %} <span>{{ comp }} {% endfor %}</span></p></div>
-		<div><h2>Sopa</h2><p></p></div>
-		<div><h2>Bebida</h2><p></p></div>
+	<h1>Menu Hoy {{ menu.get_dia_display }}</h1>
+
+ 	{% for platillo in menu %}
+		<h2>{{ platillo.comidas }} </h2>
+		<img src="{{MEDIA_URL}}{{ platillo.comidas.foto }}" width="60px" height="60px">
+		
+		<p>{{ platillo.comidas.descripcion }}</p>
+		<div><h2>Complemento:</h2> 
+			<p>{% for comp in platillo.complemento.all %} 
+				<span>{{ comp.nombre }} </span>
+				{% endfor %}
+			</p>
+		</div>
+		<div><h2>Sopa</h2>
+			<p>
+			{% for soup in platillo.sopa.all %}
+				<span>{{ soup.nombre }}</span>
+			{% endfor %}
+			</p>
+		</div>
+		<div><h2>Bebida</h2>
+			<p>{% for drink in platillo.bebida.all %} 
+				<span>{{ drink.nombre }} </span>
+				{% endfor %}
+			</p>
+		</div>
+	{% endfor %}
+
+
+	
+		
+ 		
+		<!--<div><h2>Complemento:</h2> <p>{% for comp in platillo.complemento %} <span>{{ comp }} {% endfor %}</span></p></div>-->
+		
 	  
 
  

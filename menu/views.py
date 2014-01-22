@@ -9,15 +9,26 @@ from django.contrib import auth
 from django.contrib.messages.api import get_messages
 from decimal import *
 from django.shortcuts import redirect
-from datetime import datetime
+from datetime import date
 from ww.menu.models import Menu,Complemento,Comida,Bebida
 
+dia_semana={
+	1:"Lunes",
+	2:"Martes",
+	3:"Miercoles",
+	4:"Jueves",
+	5:"Viernes",
+	6:"Sabado",
+	7:"Domingo"
+}
 
 def inicio(request):
+	dia=date.today().isoweekday()
+	menu=Menu.objects.filter(dia=dia)
+	#complementos=Menu.objects.filter(dia=dia).complemento.all()
+	dia=dia_semana[dia]
 	
-	menus=Menu.objects.get(fecha="2014-01-11")
-	complementos=Menu.objects.get(fecha="2014-01-11").complemento.all()
-	 
-	#Categorias=Pelicula.objects.get(titulo=titulop).categorias.all()
+	
+	#Categorias=Pelicula.objects.get(titulo=titulop).categorias.all() "complementos":complementos
 
-	return render_to_response('index.html',{'menus': menus,'dia':'lunes',"complementos":complementos},RequestContext(request))
+	return render_to_response('index.html',{'menu': menu,'dia':dia},RequestContext(request))
