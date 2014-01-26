@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
     <meta charset="utf-8">
     <title>BestMenu</title>
+    <link rel="stylesheet" href="/media/css/jquery.mobile-1.4.0.min.css" type="text/css" />
     <link rel="stylesheet" href="/media/css/main.css" type="text/css" />
+    <script type="text/javascript" src="/media/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/media/js/jquery.mobile-1.4.0.min.js"></script>
+    <script type="text/javascript" src="/media/js/main.js"></script>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-    <header>
+<body>
+    <div data-role="page" id="inicio">
+        <div data-role="header" data-theme="b">
+            <h1>BestMenu</h1>
+        </div>
+        <!-- /header -->
+        <div data-role="content">       
+            {% block cuerpo %} {% endblock %}
+        </div>
 
-    </header>
-    <section>
-    	{% block cuerpo %}
-		{% endblock %} 
-    </section>
-
-    <footer>
-
-    </footer>
-
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <div data-role="navbar">
+                <ul id="dias">
+                    <li><a href="/dia/1" data-icon="star" data-transition="pop">Lunes</a>
+                    </li>
+                    <li><a href="/dia/2" data-icon="plus" data-transition="slideup"> Martes </a>
+                    </li>
+                    <li><a href="/dia/3" data-icon="grid" data-transition="flip"> Miercoles</a>
+                    </li>
+                    <li><a href="/dia/4" data-icon="cloud" data-transition="slide"> Jueves</a>
+                    </li>
+                    <li><a href="/dia/5" data-icon="navigation" data-transition="flow">Viernes</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /navbar -->
+        </div>
+        <!-- /footer -->
+    </div>
 </body>
+
 </html>

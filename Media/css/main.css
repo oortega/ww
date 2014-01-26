@@ -1,1 +1,8 @@
 body{color: #666; text-align: center;}
+h1{font-size: 20px}
+
+.ui-bar-b{background: #333}
+.menu-content {font-family: "open sans";  }
+.menu-content p{text-align: justify;}
+.menu-content img{margin-top: 15px;}
+.menu-content ul{width: 60%;margin: 0 auto;padding: 0;}

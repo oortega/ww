@@ -11,7 +11,7 @@ from ww import settings
  
 urlpatterns = patterns('', 
 	(r'^$',menu_views.inicio),
-	
+	(r'^dia/(\d{1})/$',menu_views.dia),
 	
 )
 

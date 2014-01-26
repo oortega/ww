@@ -18,7 +18,7 @@ DIA_SEMANA= (
 class Comida(models.Model):
 	nombre=models.CharField("Nombre de la Comida",max_length=100,unique=True)
 	descripcion=models.CharField(max_length=450)
-	foto=models.ImageField(upload_to = 'image/comidas')
+	foto=models.ImageField(upload_to = 'images/comidas')
 	def __str__(self):
 		return self.nombre
 

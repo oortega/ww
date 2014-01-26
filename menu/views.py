@@ -32,3 +32,12 @@ def inicio(request):
 	#Categorias=Pelicula.objects.get(titulo=titulop).categorias.all() "complementos":complementos
 
 	return render_to_response('index.html',{'menu': menu,'dia':dia},RequestContext(request))
+def dia(request, menudia):
+	
+
+	menu=Menu.objects.filter(dia=int(menudia))
+	dia=dia_semana[int(menudia)]
+
+	#Categorias=Pelicula.objects.get(titulo=titulop).categorias.all() "complementos":complementos
+
+	return render_to_response('index.html',{'menu': menu,'dia':dia},RequestContext(request))

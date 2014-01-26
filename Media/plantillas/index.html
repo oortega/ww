@@ -1,41 +1,41 @@
 {% extends "esqueleto.html" %}
 {% block cuerpo %}
 
-	<h1>Menu Hoy {{ menu.get_dia_display }}</h1>
+	<h1>Menu Hoy {{ dia }}</h1>
 
  	{% for platillo in menu %}
-		<h2>{{ platillo.comidas }} </h2>
-		<img src="{{MEDIA_URL}}{{ platillo.comidas.foto }}" width="60px" height="60px">
-		
-		<p>{{ platillo.comidas.descripcion }}</p>
-		<div><h2>Complemento:</h2> 
-			<p>{% for comp in platillo.complemento.all %} 
-				<span>{{ comp.nombre }} </span>
-				{% endfor %}
-			</p>
-		</div>
-		<div><h2>Sopa</h2>
-			<p>
-			{% for soup in platillo.sopa.all %}
-				<span>{{ soup.nombre }}</span>
-			{% endfor %}
-			</p>
-		</div>
-		<div><h2>Bebida</h2>
-			<p>{% for drink in platillo.bebida.all %} 
-				<span>{{ drink.nombre }} </span>
-				{% endfor %}
-			</p>
-		</div>
+
+ 	         <div class="menu-content ui-corner-all custom-corners">
+                <div class="ui-bar ui-bar-a">
+                    <h3>{{ platillo.comidas }} </h3>
+                </div>
+                <div class="ui-body ui-body-a">
+                     <img width="120px" height="120px"  src="{{MEDIA_URL}}{{ platillo.comidas.foto }}" alt="{{ platillo.comidas }}" title="Menu {{ platillo.comidas }}"  >
+                        <h3>Descripcion:</h3>
+                        <p>{{ platillo.comidas.descripcion }}</p>
+
+                        <h3>Complemento:</h3>
+                        
+                            <ul>{% for comp in platillo.complemento.all %} 
+                                <li>{{ comp.nombre }}</li>
+                                {% endfor %}
+                            </ul>
+                        <h3>Sopa:</h3>
+                        <ul>{% for soup in platillo.sopa.all %} 
+                             <li>{{ soup.nombre  }}</li>
+                            {% endfor %}
+                        </ul>
+                        <h2>Bebida:</h2>
+                        <ul>{% for drink in platillo.bebida.all %} 
+                            <li>{{ drink.nombre }}</li>
+                            {% endfor %}
+                        </ul>
+
+                </div>
+            </div>
+
+	 
 	{% endfor %}
-
-
-	
-		
- 		
-		<!--<div><h2>Complemento:</h2> <p>{% for comp in platillo.complemento %} <span>{{ comp }} {% endfor %}</span></p></div>-->
-		
-	  
 
  
 {% endblock %}
